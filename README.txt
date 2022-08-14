@@ -1,5 +1,6 @@
 The dataset is created in dataset.cpp file. 
-Just executing it creates a 3.94GB file. (for 10M vectors)
+Just executing it creates a 3.94GB file (for 10M vectors)
+with "vector_file.txt" filename.
 
 The data is then read from the file and 
 the kd tree is built dynamically in the 
