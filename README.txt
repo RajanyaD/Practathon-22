@@ -12,3 +12,7 @@ calculates the median time required for the searches.
 
 Dynamically_creating_dataset.cpp creates everything
 together and dynamically. Its the whole code in one place.
+
+The code worked for 1M vectors... For 10M vectors it was getting killed
+due to memory limits crossed. But for the purpose of completeness,
+the value of N i.e. the number of vectors is kept 10M in the code.
