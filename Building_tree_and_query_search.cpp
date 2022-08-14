@@ -124,6 +124,7 @@ int main(){
         searchMin(node,qq,pq,0);
         clock_t end=clock();
         time.push_back((double)(end-start)/CLOCKS_PER_SEC);
+        cout<<"Wall clock time "<<(double)(end-start)/CLOCKS_PER_SEC<<endl;
 
 
         vector<vector<int>>f;
@@ -140,7 +141,7 @@ int main(){
         }
     }
     sort(time.begin(),time.end());
-    cout<<(time[time.size()/2]+time[time.size()/2+1])/2<<endl;
+    cout<<"Median time = "<<(time[time.size()/2]+time[time.size()/2+1])/2<<endl;
 
     return 0;
 }

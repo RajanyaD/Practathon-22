@@ -91,7 +91,7 @@ int main(){
     
     vector<vector<int>>v;
     //v={{2,3},{1,5},{4,2},{4,5},{3,3},{4,4},{0,7},{0,0},{-1,7},{1,7},{-1,1}};
-    for(int i=0;i<10000000;i++){
+    for(int i=0;i<1000000;i++){
         vector<int>t;
         for(int j=0;j<100;j++){
             t.push_back(nd(de));
@@ -100,7 +100,7 @@ int main(){
     }
     vector<double>timeit;
     //vector<int>q={0,0};
-    for(int x=1;x<=100;x++)
+    for(int x=1;x<=1;x++)
     {
         vector<int>q;
         for(int i=0;i<100;i++)
@@ -111,6 +111,7 @@ int main(){
         searchMin(node,q,pq,0);
         clock_t end=clock();
         timeit.push_back((double)(end-start)/CLOCKS_PER_SEC);
+        cout<<"Wall clock time "<<(double)(end-start)/CLOCKS_PER_SEC<<endl;
         
         vector<vector<int>>f;
         while(!pq.empty()){
@@ -125,28 +126,28 @@ int main(){
         }
         
         cout<<endl;   
-        // cout<<"Brute force result..."<<endl;
-        // vector<vector<int>>brute;
-        // map<int,vector<int>>mp;    
-        // for(int i=0;i<v.size();i++){
-        //     int dist=0;
-        //     for(int j=0;j<100;j++)
-        //         dist+=(v[i][j]-q[j])*(v[i][j]-q[j]);
-        //     mp[dist]=v[i];
-        // }
-        // int count=0;
-        // for(auto it=mp.begin();it!=mp.end();it++){
-        //     brute.push_back(it->second);
-        //     count++;
-        //     if(count==10)
-        //         break;
-        // }
-        // reverse(brute.begin(),brute.end());
-        // cout<<"Result and brute force IsEqual? "<<(brute==f)<<endl;
+        cout<<"Brute force result..."<<endl;
+        vector<vector<int>>brute;
+        map<int,vector<int>>mp;    
+        for(int i=0;i<v.size();i++){
+            int dist=0;
+            for(int j=0;j<100;j++)
+                dist+=(v[i][j]-q[j])*(v[i][j]-q[j]);
+            mp[dist]=v[i];
+        }
+        int count=0;
+        for(auto it=mp.begin();it!=mp.end();it++){
+            brute.push_back(it->second);
+            count++;
+            if(count==10)
+                break;
+        }
+        reverse(brute.begin(),brute.end());
+        cout<<"Result and brute force IsEqual? "<<(brute==f)<<endl;
     }
 
     sort(timeit.begin(),timeit.end());
-    cout<<"Median time for 10 queries "<<(timeit[timeit.size()/2]+timeit[timeit.size()/2+1])/2<<endl;
+    cout<<"Median time"<<(timeit[timeit.size()/2]+timeit[timeit.size()/2+1])/2<<endl;
         
     return 0;
 }
